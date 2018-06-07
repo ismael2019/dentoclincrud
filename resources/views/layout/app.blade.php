@@ -223,29 +223,8 @@
   <div class="content-wrapper">
 
       <div class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-header card-header-primary"  style="background-color:#27A3FF;">
-                                  <div class="media">
-                                    <div class="media-body" style="color:#fff;">
-                                      <h5 class="mt-0 mb-1 card-title">@yield('texto1')</h5>
-                                      <p class="card-category">@yield('texto2')</p>
-                                    </div>
-                                    <img src="{{asset('imagenes/lista.png')}}" class="img-fluid" style="width:90px;" >
-                                  </div>
-                                </div>
-                                <div class="card-body">
-
-                                      @yield('content')
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          @yield('content')      
+      </div>
 
     <footer class="sticky-footer" style="background-color: #27A3FF">
       <div class="container">
