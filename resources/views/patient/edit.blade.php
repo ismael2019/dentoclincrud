@@ -5,7 +5,7 @@
       <div class="row">
           <div class="col-md-12">
               <div class="card">
-                  <div class="card-header card-header-primary"  style="background-color:#27A3FF;">
+                  <div class="card-header card-header-primary" style="background-color:#007FB3">
                     <div class="media">
                       <div class="media-body" style="color:#fff;">
                         <h5 class="mt-0 mb-1 card-title">Modificar Paciente</h5>
@@ -14,7 +14,7 @@
                       <img src="{{asset('imagenes/editar.png')}}" class="img-fluid rounded-circle" style="background-color:#ffffff; width:90px;" >
                     </div>
                   </div>
-                  <div class="card-body">
+                  <div class="card-body" style="background-color:#71AFC8;">
                     <form class="form-group" action="/patient/{{$patient->id}}" method="POST" enctype="multipart/form-data">
                       @method ('PUT')
                       @csrf

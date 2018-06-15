@@ -9,8 +9,8 @@
                   <div class="card-header card-header-primary"  style="background-color:#007FB3">
                     <div class="media">
                       <div class="media-body" style="color:#fff;">
-                        <h5 class="mt-0 mb-1 card-title"><spam style="font-weight:bold;">{{$patient->name}} {{$patient->last_name}}</spam></h5>
-                        <p class="card-category">Aqui podra encontrar datos principales del paciente, consultas del paciente, recetas medicas del paciente</p>
+                        <h5 class="mt-0 mb-1 card-title"><spam style="font-weight:bold;">Cita: {{$consultation->diagnosis}} {{$consultation->start_date}}</spam></h5>
+                        <p class="card-category">Aqui podra encontrar detalles de la cita medica</p>
                       </div>
                       <img src="{{asset('imagenes/ver.png')}}" class="img-fluid rounded-circle" style="width:100px; background-color:#ffffff;" >
                     </div>
@@ -21,7 +21,7 @@
                         <div class="card-header" style="background-color:#27A3FF;" id="headingOne">
                           <h5 class="mb-0">
                             <button style="color:#ffffff;" class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                              Datos Principales del Paciente
+                              Detalle de la Cita
                             </button>
                           </h5>
                         </div>
@@ -31,37 +31,17 @@
                             <div class="table-responsive">
                             <table class="table table-sm">
                                <tr>
-                                  <th scope="col">Cedula de identidad</th>
-                                  <td>{{$patient->c_i}}</td>
+                                  <th scope="col">Diagnostico</th>
+                                  <td>{{$consultation->diagnosis}}</td>
                                 </tr>
                                  <tr>
-                                   <th scope="col">Nombre</th>
-                                   <td>{{$patient->name}}</td>
+                                   <th scope="col">Fecha Inicio</th>
+                                   <td>{{$consultation->start_date}}</td>
                                  </tr>
                                  <tr>
-                                   <th scope="col">Apellido</th>
-                                   <td>{{$patient->last_name}}</td>
-                                 </tr>
-                                 <tr>
-                                    <th scope="col">Edad</th>
-                                    <td>{{$patient->age}}</td>
-                                  </tr>
-                                 <tr>
-                                    <th scope="col">Genero</th>
-                                    <td>{{$patient->gender}}</td>
-                                 </tr>
-                                 <tr>
-                                    <th scope="col">Email</th>
-                                    <td>{{$patient->email}}</td>
-                                 </tr>
-                                 <tr>
-                                    <th scope="col">Telefono</th>
-                                    <td>{{$patient->phone}}</td>
-                                 </tr>
-                                 <tr>
-                                  <th scope="col">Ciudad</th>
-                                  <td>{{$patient->city}}</td>
-                                </tr>
+                                   <th scope="col">Fecha Final</th>
+                                   <td>{{$consultation->end_date}}</td>
+                                 </tr>                                
                             </table>
                             </div>
                           </div>

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Controller;
+use App\Consultation;
+use Session;
+use Redirect;
 class ConsultationController extends Controller
 {
     /**
@@ -13,7 +16,8 @@ class ConsultationController extends Controller
      */
     public function index()
     {
-        //
+        $consultations = Consultation::all();
+        return view ('consultation.index',compact('consultations'));
     }
 
     /**
@@ -23,7 +27,7 @@ class ConsultationController extends Controller
      */
     public function create()
     {
-        //
+        return view('consultation.create');
     }
 
     /**
@@ -34,7 +38,22 @@ class ConsultationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+          'diagnosis'=>'required',
+          'start_date'=>'required',
+          'end_date'=>'required'
+        ]);
+
+        $consultation = new Consultation;
+        $consultation->diagnosis = $request->input('diagnosis');
+        $consultation->start_date =  $request->input('start_date');
+        $consultation->end_date = $request->input('end_date');
+        $consultation->patient_id = $request->input('patient_id');
+        $consultation->save();
+        Session::flash('message', 'La cita fue registrado con Éxito');
+        return Redirect::to('/consultation');
+
+
     }
 
     /**
@@ -43,9 +62,9 @@ class ConsultationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Consultation $consultation)
     {
-        //
+        return view('consultation.show',compact('consultation'));
     }
 
     /**
@@ -54,9 +73,9 @@ class ConsultationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Consultation $consultation)
     {
-        //
+        return view ('consultation.edit',compact('consultation'));
     }
 
     /**
@@ -66,9 +85,12 @@ class ConsultationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Consultation $consultation)
     {
-        //
+      $consultation->fill($request->all());
+      $consultation->save();
+
+      return Redirect::to('/consultation');
     }
 
     /**
@@ -79,6 +101,8 @@ class ConsultationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $consultation = Consultation::find($id);
+        $consultation->delete();
+        return redirect('consultation')->with('success','Information has been  deleted');
     }
 }

@@ -16,20 +16,21 @@
   <link href="{{asset('css/admin/dataTables.bootstrap4.css')}}" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="{{asset('css/admin/sb-admin.css')}}" rel="stylesheet">
+  <link href="{{asset('css/datapicker/tempusdominus-bootstrap-4.min.css')}}" rel="stylesheet">
 </head>
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #27A3FF;" id="mainNav">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color:#007FB3;" id="mainNav">
     <img src="{{asset('imagenes/lista.png')}}" style="height:40px; width:40px; position:relative;"><a class="navbar-brand" href="index.html" style="color:#ffffff; text-align: left;">DFVD</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion" style="background-color:#27A3FF;">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Crear Paciente">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion" style="background-color:#007FB3;">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Registrar Paciente">
           <a class="nav-link active" href="{{url('/patient/create')}}" >
             <i class="fas fa-user-circle" style="color: #ffffff; vertical-align:middle; "></i>
-            <span class="nav-link-text" style=" color:#ffffff;">Crear Paciente</span>
+            <span class="nav-link-text" style=" color:#ffffff;">Registrar Paciente</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Lista de Pacientes">
@@ -38,10 +39,16 @@
             <span class="nav-link-text" style=" color:#ffffff;">Lista de Pacientes</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="tables.html">
-            <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text" style=" color:#ffffff;">Tables</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Registrar Cita">
+          <a class="nav-link" href="{{url('/consultation/create')}}">
+            <i class="fas fa-user-clock" style="color: #ffffff; vertical-align:middle; "></i>
+            <span class="nav-link-text" style=" color:#ffffff;">Registrar Cita</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Lista de Pacientes">
+          <a class="nav-link" href="{{url('/consultation')}}">
+            <i class="fas fa-clock" style="color: #ffffff; vertical-align:middle; "></i>
+            <span class="nav-link-text" style=" color:#ffffff;">Lista de citas medicas</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
@@ -51,10 +58,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
             <li>
-              <a href="navbar.html" style="background-color: #27A3FF">Navbar</a>
+              <a href="navbar.html" style="background-color: #007FB3">Navbar</a>
             </li>
             <li>
-              <a href="cards.html" style="background-color: #27A3FF">Cards</a>
+              <a href="cards.html" style="background-color: #007FB3">Cards</a>
             </li>
           </ul>
         </li>
@@ -65,16 +72,16 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseExamplePages">
             <li>
-              <a href="login.html" style="background-color: #27A3FF" >Login Page</a>
+              <a href="login.html" style="background-color: #007FB3" >Login Page</a>
             </li>
             <li>
-              <a href="register.html" style="background-color: #27A3FF">Registration Page</a>
+              <a href="register.html" style="background-color: #007FB3">Registration Page</a>
             </li>
             <li>
-              <a href="forgot-password.html" style="background-color: #27A3FF">Forgot Password Page</a>
+              <a href="forgot-password.html" style="background-color: #007FB3">Forgot Password Page</a>
             </li>
             <li>
-              <a href="blank.html" style="background-color: #27C1FF">Blank Page</a>
+              <a href="blank.html" style="background-color: #007FB3">Blank Page</a>
             </li>
           </ul>
         </li>
@@ -116,7 +123,7 @@
           </a>
         </li>
       </ul>
-      <ul class="navbar-nav sidenav-toggler" style="background-color: #27A3FF">
+      <ul class="navbar-nav sidenav-toggler" style="background-color: #007FB3">
         <li class="nav-item">
           <a class="nav-link text-center" id="sidenavToggler">
             <i class="fa fa-fw fa-angle-left"></i>
@@ -220,13 +227,13 @@
       </ul>
     </div>
   </nav>
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="background-color:#68A9C4;" >
 
       <div class="content">
-          @yield('content')      
+          @yield('content')
       </div>
 
-    <footer class="sticky-footer" style="background-color: #27A3FF">
+    <footer class="sticky-footer" style="color:#ffffff; background-color: #007FB3">
       <div class="container">
         <div class="text-center">
           <small>Clinica dental DFVD 2018</small>
@@ -257,6 +264,9 @@
     </div>
     <!-- Bootstrap core JavaScript-->
     <script src="{{asset('js/admin/jquery.min.js')}}"></script>
+    <script src="{{asset('js/datapicker/moment.js')}}"></script>
+    <script src="{{asset('js/datapicker/es.js')}}"></script>
+    <script src="{{asset('js/datapicker/tempusdominus-bootstrap-4.min.js')}}"></script>
     <script src="{{asset('js/admin/bootstrap.bundle.min.js')}}"></script>
     <!-- Core plugin JavaScript-->
     <script src="{{asset('js/admin/jquery.easing.min.js')}}"></script>

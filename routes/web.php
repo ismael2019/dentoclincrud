@@ -15,3 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('patient','PatientController');
+Route::resource('consultation','ConsultationController');
