@@ -51,6 +51,18 @@
             <span class="nav-link-text" style=" color:#ffffff;">Lista de citas medicas</span>
           </a>
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Lista de Pacientes">
+          <a class="nav-link" href="{{url('/treatment/create')}}">
+            <i class="fas fa-briefcase-medical" style="color: #ffffff; vertical-align:middle; "></i>
+            <span class="nav-link-text" style=" color:#ffffff;">Registrar Tratamientos</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Lista de Pacientes">
+          <a class="nav-link" href="{{url('/treatment')}}">
+            <i class="fas fa-notes-medical" style="color: #ffffff; vertical-align:middle; "></i>
+            <span class="nav-link-text" style=" color:#ffffff;">Lista de Tratamientos</span>
+          </a>
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-wrench"></i>

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Controller;
+use App\Treatment;
+use Session;
+use Redirect;
 class TreatmentController extends Controller
 {
     /**
@@ -13,7 +16,8 @@ class TreatmentController extends Controller
      */
     public function index()
     {
-        //
+        $treatments = Treatment::all();
+        return view ('treatment.index',compact('treatments'));
     }
 
     /**
@@ -23,7 +27,7 @@ class TreatmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('treatment.create');
     }
 
     /**
@@ -34,7 +38,16 @@ class TreatmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+          'name'=>'required'
+        ]);
+
+        $treatment = new Treatment;
+        $treatment->name = $request->input('name');
+        $treatment->save();
+        Session::flash('message', 'El trtamiento fue registrado con Éxito');
+        return Redirect::to('/treatment');
+
     }
 
     /**
@@ -43,9 +56,9 @@ class TreatmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Treatment $treatment)
     {
-        //
+        return view('treatment.show',compact('treatment'));
     }
 
     /**
@@ -54,9 +67,9 @@ class TreatmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Treatment $treatment)
     {
-        //
+        return view ('treatment.edit',compact('treatment'));
     }
 
     /**
@@ -66,9 +79,11 @@ class TreatmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Treatment $treatment)
     {
-        //
+      $treatment->fill($request->all());
+      $treatment->save();
+      return Redirect::to('/treatment');
     }
 
     /**
@@ -79,6 +94,8 @@ class TreatmentController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+      $treatment = Treatment::find($id);
+      $treatment->delete();
+      return redirect('treatment')->with('success','Information has been  deleted');
+  }
 }

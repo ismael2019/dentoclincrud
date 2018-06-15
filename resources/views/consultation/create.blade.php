@@ -2,7 +2,7 @@
 
 @section('title','Paciente Nuevo')
 
-@section('texto1','Crear Nuevo Paciente')
+@section('texto1','Crear Nuevo Cita')
 @section('texto2','Ingrese los datos del paciente para registrarlo')
 @section('content')
   <div class="container-fluid">
