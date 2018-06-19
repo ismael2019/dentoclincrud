@@ -1,9 +1,7 @@
 @extends('layout.app')
 
 @section('title','Paciente Nuevo')
-
-@section('texto1','Crear Nuevo Paciente')
-@section('texto2','Ingrese los datos del paciente para registrarlo')
+@section('seleccionado','seleccionado')
 @section('content')
   <div class="container-fluid">
       <div class="row">

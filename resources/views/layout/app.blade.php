@@ -28,37 +28,37 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion" style="background-color:#007FB3;">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Registrar Paciente">
-          <a class="nav-link active" href="{{url('/patient/create')}}" >
+          <a class="nav-link active" id="@yield('seleccionado')" href="{{url('/patient/create')}}" >
             <i class="fas fa-user-circle" style="color: #ffffff; vertical-align:middle; "></i>
             <span class="nav-link-text" style=" color:#ffffff;">Registrar Paciente</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Lista de Pacientes">
-          <a class="nav-link" href="{{url('/patient')}}">
+          <a class="nav-link" id="@yield('seleccionado1')" href="{{url('/patient')}}">
             <i class="fas fa-users" style="color: #ffffff; vertical-align:middle; "></i>
             <span class="nav-link-text" style=" color:#ffffff;">Lista de Pacientes</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Registrar Cita">
-          <a class="nav-link" href="{{url('/consultation/create')}}">
+          <a class="nav-link" id="@yield('seleccionado2')" href="{{url('/consultation/create')}}">
             <i class="fas fa-user-clock" style="color: #ffffff; vertical-align:middle; "></i>
             <span class="nav-link-text" style=" color:#ffffff;">Registrar Cita</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Lista de Pacientes">
-          <a class="nav-link" href="{{url('/consultation')}}">
+          <a class="nav-link" id="@yield('seleccionado3')" href="{{url('/consultation')}}">
             <i class="fas fa-clock" style="color: #ffffff; vertical-align:middle; "></i>
             <span class="nav-link-text" style=" color:#ffffff;">Lista de citas medicas</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Lista de Pacientes">
-          <a class="nav-link" href="{{url('/treatment/create')}}">
+          <a class="nav-link" id="@yield('seleccionado4')" href="{{url('/treatment/create')}}">
             <i class="fas fa-briefcase-medical" style="color: #ffffff; vertical-align:middle; "></i>
             <span class="nav-link-text" style=" color:#ffffff;">Registrar Tratamientos</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Lista de Pacientes">
-          <a class="nav-link" href="{{url('/treatment')}}">
+          <a class="nav-link" id="@yield('seleccionado5')" href="{{url('/treatment')}}">
             <i class="fas fa-notes-medical" style="color: #ffffff; vertical-align:middle; "></i>
             <span class="nav-link-text" style=" color:#ffffff;">Lista de Tratamientos</span>
           </a>

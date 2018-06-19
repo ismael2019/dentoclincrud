@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Consultation;
+use App\Patient;
 use Session;
 use Redirect;
 class ConsultationController extends Controller
@@ -27,7 +28,8 @@ class ConsultationController extends Controller
      */
     public function create()
     {
-        return view('consultation.create');
+        $patients = Patient::all();
+        return view('consultation.create',compact('patients'));
     }
 
     /**

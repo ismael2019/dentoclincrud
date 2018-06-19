@@ -2,6 +2,7 @@
 
 @section('title','Detalle')
 @section('content')
+  @section('seleccionado3','seleccionado3')
   <div class="container-fluid">
       <div class="row">
           <div class="col-md-12">

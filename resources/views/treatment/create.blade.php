@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('title','Tratamiento Nuevo')
-
+@section('seleccionado4','seleccionado4')
 
 @section('content')
   <div class="container-fluid">

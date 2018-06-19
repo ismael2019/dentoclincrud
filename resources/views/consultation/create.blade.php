@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('title','Paciente Nuevo')
-
+@section('seleccionado2','seleccionado2')
 @section('texto1','Crear Nuevo Cita')
 @section('texto2','Ingrese los datos del paciente para registrarlo')
 @section('content')
@@ -67,9 +67,10 @@
                         <div class="form-group col-md-12">
                           <label for="">Paciente</label>
                           <select class="form-control" name="patient_id">
-                            <option>1</option>
-                            <option>Masculino</option>
-                            <option>Femenino</option>
+                            <option value="">--Seleccione al Paciente--</option>
+                            @foreach ($patients as $patient)
+                              <option value="{{$patient['id']}}">{{$patient->name}}</option>
+                            @endforeach
                           </select>
                         </div>
                       </div>
