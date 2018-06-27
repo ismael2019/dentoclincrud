@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Patient;
@@ -71,13 +73,15 @@ class PatientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Patient $patient)
+    public function show($id)
     {
-    //  $patients = Patient::find($id);
-      return view('patient.show',compact('patient'));
+        $patient = Patient::findOrFail($id);
+        $consultas = DB::table('attentions')->where('attentions.patient_id', '=', $patient->id)->get();
+       //dd($consultas);
+      return view('patient.show', ['patient' => $patient, 'consultas' => $consultas]);
     }
 
-    /**
+     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id

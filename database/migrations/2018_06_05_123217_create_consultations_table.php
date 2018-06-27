@@ -16,8 +16,8 @@ class CreateConsultationsTable extends Migration
         Schema::create('consultations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('diagnosis');
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
+            $table->string('start_date');
+            $table->string('end_date');
             $table->integer('patient_id')->unsigned();
             $table->timestamps();
             $table->foreign('patient_id')->references('id')->on('patients');

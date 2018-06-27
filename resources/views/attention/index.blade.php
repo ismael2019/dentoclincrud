@@ -34,7 +34,7 @@
                               <td>{{$attention->id}}</td>
                               <td>{{$attention->tooth}}</td>
                               <td>{{$attention->description}}</td>
-                              <td>{{$attention->patient->last_name}} {{$attention->patient->name}}</td>
+                              <td>{{$attention->patient->last_name.' '.$attention->patient->name}}</td>
                               <td>{{$attention->treatment->name}}</td>
                               <td>
                                 <div class="btn-group d-flex" >

@@ -35,7 +35,7 @@
                               <td>{{$consultation->diagnosis}}</td>
                               <td>{{$consultation->start_date}}</td>
                               <td>{{$consultation->end_date}}</td>
-                              <td>{{$consultation->patient_id}}</td>
+                              <td>{{$consultation->patient_id }}</td>
                               <td>
                                 <div class="btn-group d-flex" >
                                 <a class="btn btn-info" href="/consultation/{{$consultation->id}}/edit"><i class="far fa-edit"> Editar</i></a>

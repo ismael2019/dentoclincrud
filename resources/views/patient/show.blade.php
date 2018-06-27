@@ -78,42 +78,29 @@
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                           <div class="card-body">
+                            @foreach($consultas as $consul)
                             <div class="table-responsive">
                             <table class="table table-sm">
                                <tr>
-                                  <th scope="col">Cedula de identidad</th>
-                                  <td>{{$patient->c_i}}</td>
+                                  <th scope="col">Diente</th>
+                                  <td>{{$consul->tooth}}</td>
                                 </tr>
                                  <tr>
-                                   <th scope="col">Nombre</th>
-                                   <td>{{$patient->name}}</td>
+                                   <th scope="col">Descripcion</th>
+                                   <td>{{$consul->description}}</td>
                                  </tr>
                                  <tr>
-                                   <th scope="col">Apellido</th>
-                                   <td>{{$patient->last_name}}</td>
+                                   <th scope="col">Tratamiento</th>
+                                   <td>@if($consul->treatment_id == '1')
+                                      Limpieza
+                                      @else                                      casi tratamiento
+                                      @endif
+                                   </td>
                                  </tr>
-                                 <tr>
-                                    <th scope="col">Edad</th>
-                                    <td>{{$patient->age}}</td>
-                                  </tr>
-                                 <tr>
-                                    <th scope="col">Genero</th>
-                                    <td>{{$patient->gender}}</td>
-                                 </tr>
-                                 <tr>
-                                    <th scope="col">Email</th>
-                                    <td>{{$patient->email}}</td>
-                                 </tr>
-                                 <tr>
-                                    <th scope="col">Telefono</th>
-                                    <td>{{$patient->phone}}</td>
-                                 </tr>
-                                 <tr>
-                                  <th scope="col">Ciudad</th>
-                                  <td>{{$patient->city}}</td>
-                                </tr>
+                                         
                             </table>
                             </div>
+                            @endforeach
                           </div>
                         </div>
                       </div>
