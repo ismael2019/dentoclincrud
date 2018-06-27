@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Prescription;
+use App\Patient;
+use Session;
+use Redirect;
 
 class PrescriptionController extends Controller
 {
@@ -13,7 +18,8 @@ class PrescriptionController extends Controller
      */
     public function index()
     {
-        //
+      $prescriptions = Prescription::all();
+      return view ('prescription.index',compact('prescriptions'));
     }
 
     /**
@@ -23,7 +29,8 @@ class PrescriptionController extends Controller
      */
     public function create()
     {
-        //
+      $patients = Patient::all();
+      return view('prescription.create',compact('patients'));
     }
 
     /**
@@ -34,7 +41,17 @@ class PrescriptionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $this->validate($request,[
+        'tittle'=>'required',
+        'detail'=>'required'
+      ]);
+      $prescription = new Prescription;
+      $prescription->tittle = $request->input('tittle');
+      $prescription->detail = $request->input('detail');
+      $prescription->patient_id = $request->input('patient_id');
+      $prescription->save();
+      Session::flash('message', 'La cita fue registrado con Éxito');
+      return Redirect::to('/prescription');
     }
 
     /**
@@ -43,9 +60,9 @@ class PrescriptionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Prescription $prescription)
     {
-        //
+        return view ('prescription.show',compact('prescription'));
     }
 
     /**
@@ -54,9 +71,9 @@ class PrescriptionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Prescription $prescription)
     {
-        //
+        return view ('prescription.edit',compact('prescription'));
     }
 
     /**
@@ -66,9 +83,11 @@ class PrescriptionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Prescription $prescription)
     {
-        //
+        $prescription->fill($request->all());
+        $prescription->save();
+        return Redirect::to('/prescription');
     }
 
     /**
@@ -79,6 +98,8 @@ class PrescriptionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $prescription = Prescription::find($id);
+        $prescription->delete();
+        return redirect('prescription')->with('success','Information has been delete');
     }
 }

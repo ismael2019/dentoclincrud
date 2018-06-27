@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Attention;
+use App\Patient;
+use App\Treatment;
+use Session;
+use Redirect;
 
 class AttentionController extends Controller
 {
@@ -13,7 +19,8 @@ class AttentionController extends Controller
      */
     public function index()
     {
-        //
+        $attentions = Attention::all();
+        return view ('attention.index',compact('attentions'));
     }
 
     /**
@@ -23,7 +30,9 @@ class AttentionController extends Controller
      */
     public function create()
     {
-        //
+        $patients = Patient::all();
+        $treatments = Treatment::all();
+        return view('attention.create',compact('patients','treatments'));
     }
 
     /**
@@ -34,7 +43,18 @@ class AttentionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+          'tooth'=>'required',
+          'description'=>'required'
+        ]);
+        $attention = new Attention;
+        $attention->tooth = $request->input('tooth');
+        $attention->description = $request->input('description');
+        $attention->patient_id = $request->input('patient_id');
+        $attention->treatment_id = $request->input('treatment_id');
+        $attention->save();
+        Session::flash('message', 'Regristro con exito');
+        return Redirect::to('/attention');
     }
 
     /**
@@ -43,9 +63,9 @@ class AttentionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Attention $attention)
     {
-        //
+        return view ('attention.show',compact('attention'));
     }
 
     /**
@@ -54,9 +74,11 @@ class AttentionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Attention $attention)
     {
-        //
+        $patients = Patient::all();
+        $treatments = Treatment::all();
+        return view ('attention.edit',compact('attention','patients','treatments'));
     }
 
     /**
@@ -66,9 +88,11 @@ class AttentionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Attention $attention)
     {
-        //
+        $attention->fill($request->all());
+        $attention->save();
+        return Redirect::to('/attention');
     }
 
     /**
@@ -79,6 +103,8 @@ class AttentionController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+       $attention = Attention::find($id);
+       $attention->delete();
+       return redirect('attention')>with('success','Information has been delete');
+   }
 }

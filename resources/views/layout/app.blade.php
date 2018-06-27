@@ -63,75 +63,28 @@
             <span class="nav-link-text" style=" color:#ffffff;">Lista de Tratamientos</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text" style=" color:#ffffff;">Components</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Lista de Pacientes">
+          <a class="nav-link" id="@yield('seleccionado6')" href="{{url('/prescription/create')}}">
+            <i class="fas fa-envelope" style="color: #ffffff; vertical-align:middle; "></i>
+            <span class="nav-link-text" style=" color:#ffffff;">Registrar Receta</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
-            <li>
-              <a href="navbar.html" style="background-color: #007FB3">Navbar</a>
-            </li>
-            <li>
-              <a href="cards.html" style="background-color: #007FB3">Cards</a>
-            </li>
-          </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-file"></i>
-            <span class="nav-link-text"style=" color:#ffffff;">Example Pages</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Lista de Pacientes">
+          <a class="nav-link" id="@yield('seleccionado7')" href="{{url('/prescription')}}">
+            <i class="fas fa-clipboard-list" style="color: #ffffff; vertical-align:middle; "></i>
+            <span class="nav-link-text" style=" color:#ffffff;">Lista de Recetas</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseExamplePages">
-            <li>
-              <a href="login.html" style="background-color: #007FB3" >Login Page</a>
-            </li>
-            <li>
-              <a href="register.html" style="background-color: #007FB3">Registration Page</a>
-            </li>
-            <li>
-              <a href="forgot-password.html" style="background-color: #007FB3">Forgot Password Page</a>
-            </li>
-            <li>
-              <a href="blank.html" style="background-color: #007FB3">Blank Page</a>
-            </li>
-          </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-sitemap"></i>
-            <span class="nav-link-text"style=" color:#ffffff;">Menu Levels</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Lista de Pacientes">
+          <a class="nav-link" id="@yield('seleccionado8')" href="{{url('/attention/create')}}">
+            <i class="fas fa-clipboard" style="color: #ffffff; vertical-align:middle; "></i>
+            <span class="nav-link-text" style=" color:#ffffff;">Registrar Historial</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseMulti">
-            <li>
-              <a href="#">Second Level Item</a>
-            </li>
-            <li>
-              <a href="#">Second Level Item</a>
-            </li>
-            <li>
-              <a href="#">Second Level Item</a>
-            </li>
-            <li>
-              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>
-              <ul class="sidenav-third-level collapse" id="collapseMulti2">
-                <li>
-                  <a href="#">Third Level Item</a>
-                </li>
-                <li>
-                  <a href="#">Third Level Item</a>
-                </li>
-                <li>
-                  <a href="#">Third Level Item</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="#">
-            <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text"style=" color:#ffffff;">Link</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Lista de Pacientes">
+          <a class="nav-link" id="@yield('seleccionado9')" href="{{url('/attention')}}">
+            <i class="fas fa-clipboard-check" style="color: #ffffff; vertical-align:middle; "></i>
+            <span class="nav-link-text" style=" color:#ffffff;">Lista de Historiales</span>
           </a>
         </li>
       </ul>

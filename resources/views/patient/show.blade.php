@@ -78,7 +78,42 @@
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                           <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                            <div class="table-responsive">
+                            <table class="table table-sm">
+                               <tr>
+                                  <th scope="col">Cedula de identidad</th>
+                                  <td>{{$patient->c_i}}</td>
+                                </tr>
+                                 <tr>
+                                   <th scope="col">Nombre</th>
+                                   <td>{{$patient->name}}</td>
+                                 </tr>
+                                 <tr>
+                                   <th scope="col">Apellido</th>
+                                   <td>{{$patient->last_name}}</td>
+                                 </tr>
+                                 <tr>
+                                    <th scope="col">Edad</th>
+                                    <td>{{$patient->age}}</td>
+                                  </tr>
+                                 <tr>
+                                    <th scope="col">Genero</th>
+                                    <td>{{$patient->gender}}</td>
+                                 </tr>
+                                 <tr>
+                                    <th scope="col">Email</th>
+                                    <td>{{$patient->email}}</td>
+                                 </tr>
+                                 <tr>
+                                    <th scope="col">Telefono</th>
+                                    <td>{{$patient->phone}}</td>
+                                 </tr>
+                                 <tr>
+                                  <th scope="col">Ciudad</th>
+                                  <td>{{$patient->city}}</td>
+                                </tr>
+                            </table>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -92,7 +127,11 @@
                         </div>
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                           <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                            <div class="table-responsive">
+                            <table class="table table-sm">
+                              
+                            </table>
+                            </div>
                           </div>
                         </div>
                       </div>
