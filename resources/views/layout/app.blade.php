@@ -45,7 +45,7 @@
             <span class="nav-link-text" style=" color:#ffffff;">Registrar Cita</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Lista de Pacientes">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Lista de citas medicas">
           <a class="nav-link" id="@yield('seleccionado3')" href="{{url('/consultation')}}">
             <i class="fas fa-clock" style="color: #ffffff; vertical-align:middle; "></i>
             <span class="nav-link-text" style=" color:#ffffff;">Lista de citas medicas</span>

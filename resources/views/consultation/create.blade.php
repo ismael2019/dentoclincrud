@@ -19,7 +19,7 @@
                     </div>
                   </div>
                   <div class="card-body" style="background-color:#71AFC8;">
-                    <form class="form-group" action="/consultation" method="POST" enctype="multipart/form-data">
+                    <form class="form-group" action="{{ route('consultation.store')}}" method="POST" enctype="multipart/form-data">
                       @csrf
                       <div class="form-row">
                         <div class="form-group col-md-12">

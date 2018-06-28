@@ -12,14 +12,14 @@
                   <div class="card-header card-header-primary"  style="background-color:#007FB3;">
                     <div class="media">
                       <div class="media-body" style="color:#fff;">
-                        <h5 class="mt-0 mb-1 card-title">Registrar nueva cita medica</h5>
-                        <p class="card-category">Ingrese los datos para registrar nueva cita</p>
+                        <h5 class="mt-0 mb-1 card-title">Modificar cita medica</h5>
+                        <p class="card-category">Ingrese los datos para modificar la cita medica</p>
                       </div>
                       <img src="{{asset('imagenes/Reserva.png')}}" class="img-fluid" style="width:90px;" >
                     </div>
                   </div>
                   <div class="card-body" style="background-color:#71AFC8;">
-                    <form class="form-group" action="/consultation/{{$consultation->id}}" method="POST" enctype="multipart/form-data">
+                    <form class="form-group" action="{{ route('consultation.update', $consultation->id)}}" method="POST" enctype="multipart/form-data">
                       @method ('PUT')
                       @csrf
                       <div class="form-row">
@@ -75,8 +75,8 @@
                         </div>
                       </div>
                       <center><button type="submit" class="btn btn-success"><i class="far fa-edit"></i> Actualizar</button>
-                        <a href="{{url('/consultation')}}" class="btn btn-danger"><i class="fas fa-ban"></i> Cancelar</a>
-                      </center>
+                      <a href="{{url('/consultation')}}" class="btn btn-danger"><i class="fas fa-ban"></i> Cancelar</a>
+                      </center></form>
                     </form>
                   </div>
                 </div>

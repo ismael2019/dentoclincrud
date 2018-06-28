@@ -15,7 +15,7 @@
                     </div>
                   </div>
                   <div class="card-body" style="background-color:#71AFC8;">
-                    <form class="form-group" action="/patient/{{$patient->id}}" method="POST" enctype="multipart/form-data">
+                    <form class="form-group" action="{{ route('patient.update', $patient->id)}}" method="POST" enctype="multipart/form-data">
                       @method ('PUT')
                       @csrf
                       <div class="form-row">

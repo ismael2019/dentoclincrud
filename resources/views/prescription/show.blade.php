@@ -38,6 +38,10 @@
                                  <th scope="col">Indicaciones</th>
                                  <td>{{$prescription->detail}}</td>
                              </tr>
+                             <tr>
+                                <th scope="col">Paciente</th>
+                                <td>{{$prescription->patient->name}}</td>
+                            </tr>
                             </table>
                             </div>
                           </div>

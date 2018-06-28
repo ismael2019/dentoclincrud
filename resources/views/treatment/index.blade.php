@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('seleccionado5','seleccionado5')
-@section('title','Pacientes')
+@section('title','Tratamientos')
 @section('content')
   <div class="container-fluid">
       <div class="row">
@@ -9,10 +9,10 @@
                   <div class="card-header card-header-primary"  style="background-color:#007FB3;">
                     <div class="media">
                       <div class="media-body" style="color:#fff;">
-                        <h5 class="mt-0 mb-1 card-title">Lista de Citas medicas</h5>
-                        <p class="card-category">lista de las citas medicas</p>
+                        <h5 class="mt-0 mb-1 card-title">Lista de Tratamientos medicos</h5>
+                        <p class="card-category">lista de los tratamientos medicos</p>
                       </div>
-                      <img src="{{asset('imagenes/Reserva.png')}}" class="img-fluid" style="width:90px;" >
+                      <img src="{{asset('imagenes/tratamiento.jpg')}}" class="img-fluid rounded-circle" style="width:90px;" >
                     </div>
                   </div>
                   <div class="card-body">
@@ -32,7 +32,7 @@
                               <td>{{$treatment->name}}</td>
                               <td>
                                 <div class="btn-group d-flex" >
-                                <a class="btn btn-info" href="/treatment/{{$treatment->id}}/edit"><i class="far fa-edit"> Editar</i></a>
+                                <a class="btn btn-info" href="{{route('treatment.edit',$treatment->id)}}"><i class="far fa-edit"> Editar</i></a>
                                 <form action="{{action('TreatmentController@destroy', $treatment['id'])}}"  method="post">
                                   @csrf
                                   <input name="_method" type="hidden" value="DELETE">

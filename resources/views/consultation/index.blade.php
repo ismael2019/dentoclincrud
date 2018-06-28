@@ -35,11 +35,11 @@
                               <td>{{$consultation->diagnosis}}</td>
                               <td>{{$consultation->start_date}}</td>
                               <td>{{$consultation->end_date}}</td>
-                              <td>{{$consultation->patient_id }}</td>
+                              <td>{{$consultation->patient->name }}</td>
                               <td>
                                 <div class="btn-group d-flex" >
-                                <a class="btn btn-info" href="/consultation/{{$consultation->id}}/edit"><i class="far fa-edit"> Editar</i></a>
-                                <a class="btn btn-success"  href="/consultation/{{$consultation->id}}"><i class="far fa-eye"> Ver</i></a>
+                                <a class="btn btn-info" href="{{ route('consultation.edit', $consultation->id)}}"><i class="far fa-edit"> Editar</i></a>
+                                <a class="btn btn-success"  href="{{ route('consultation.show', $consultation->id)}}"><i class="far fa-eye"> Ver</i></a>
                                 <form action="{{action('ConsultationController@destroy', $consultation['id'])}}"  method="post">
                                   @csrf
                                   <input name="_method" type="hidden" value="DELETE">

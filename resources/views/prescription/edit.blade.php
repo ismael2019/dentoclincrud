@@ -1,7 +1,6 @@
 @extends('layout.app')
 
 @section('title','Receta Medica')
-@section('seleccionado6','seleccionado6')
 
 @section('content')
   <div class="container-fluid">
@@ -42,7 +41,7 @@
                           </select>
                         </div>
                       </div>
-                      <center><button type="submit" class="btn btn-primary" id="fondo"><i class="fas fa-briefcase-medical"></i> Registrar</button></center>
+                      <center><button type="submit" class="btn btn-primary" id="fondo"><i class="fas fa-clipboard-check"></i> Modificar</button></center>
                     </form>
                   </div>
                 </div>

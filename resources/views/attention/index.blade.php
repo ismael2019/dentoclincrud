@@ -38,8 +38,8 @@
                               <td>{{$attention->treatment->name}}</td>
                               <td>
                                 <div class="btn-group d-flex" >
-                                <a class="btn btn-info" href="/attention/{{$attention->id}}/edit"><i class="far fa-edit"> Editar</i></a>
-                                <a class="btn btn-success"  href="/attention/{{$attention->id}}"><i class="far fa-eye"> Ver</i></a>
+                                <a class="btn btn-info" href="{{route('attention.edit',$attention->id)}}"><i class="far fa-edit"> Editar</i></a>
+                                <a class="btn btn-success"  href="{{route('attention.show',$attention->id)}}"><i class="far fa-eye"> Ver</i></a>
                                 <form action="{{action('AttentionController@destroy', $attention['id'])}}"  method="post">
                                   @csrf
                                   <input name="_method" type="hidden" value="DELETE">

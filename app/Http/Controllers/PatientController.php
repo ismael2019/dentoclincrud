@@ -76,9 +76,13 @@ class PatientController extends Controller
     public function show($id)
     {
         $patient = Patient::findOrFail($id);
-        $consultas = DB::table('attentions')->where('attentions.patient_id', '=', $patient->id)->get();
-       //dd($consultas);
-      return view('patient.show', ['patient' => $patient, 'consultas' => $consultas]);
+        $consultas = DB::table('attentions')
+        ->join('treatments','treatments.id','=','treatment_id')
+        ->select('attentions.*','treatments.name')
+        ->where('attentions.patient_id', '=', $patient->id)->get();
+        $recetas = DB::table('prescriptions')->where('prescriptions.patient_id', '=', $patient->id)->get();
+       //dd($recetas);
+      return view('patient.show', ['patient' => $patient, 'consultas' => $consultas,'recetas'=>$recetas]);
     }
 
      /**
@@ -105,7 +109,7 @@ class PatientController extends Controller
       $patient->fill($request->all());
       $patient->save();
 
-      return Redirect::to('/patient');  
+      return Redirect::to('/patient');
     }
 
     /**

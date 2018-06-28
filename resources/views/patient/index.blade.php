@@ -47,7 +47,7 @@
                               <td>{{$patient->city}}</td>
                               <td>
                                 <div class="btn-group d-flex" >
-                                <a class="btn btn-info" href="/patient/{{$patient->id}}/edit"><i class="far fa-edit"> Editar</i></a><br>
+                                <a class="btn btn-info" href="{{ route('patient.edit', $patient->id)}}"><i class="far fa-edit"> Editar</i></a><br>
                                 <a href="{{ route('patient.show', $patient->id)}}" class="btn btn-success"><i class="far fa-eye"> Mostrar</i></a>
                                 <form action="{{action('PatientController@destroy', $patient['id'])}}"  method="post">
                                   @csrf

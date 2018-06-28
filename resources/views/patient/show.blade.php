@@ -2,7 +2,6 @@
 
 @section('title','Detalle')
 @section('content')
-  @section('seleccionado3','seleccionado3')
   <div class="container-fluid">
       <div class="row">
           <div class="col-md-12">
@@ -91,14 +90,9 @@
                                  </tr>
                                  <tr>
                                    <th scope="col">Tratamiento</th>
-                                   <td>@if($consul->treatment_id == '1')
-                                      Limpieza
-                                      @else                                      casi tratamiento
-                                      @endif
-                                   </td>
+                                   <td>{{$consul->name}}</td>
                                  </tr>
-                                         
-                            </table>
+                               </table>
                             </div>
                             @endforeach
                           </div>
@@ -114,11 +108,20 @@
                         </div>
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                           <div class="card-body">
+                            @foreach($recetas as $rece)
                             <div class="table-responsive">
                             <table class="table table-sm">
-                              
-                            </table>
+                               <tr>
+                                  <th scope="col">Medicamento</th>
+                                  <td>{{$rece->tittle}}</td>
+                                </tr>
+                                 <tr>
+                                   <th scope="col">Detalle</th>
+                                   <td>{{$rece->detail}}</td>
+                                 </tr>
+                               </table>
                             </div>
+                            @endforeach
                           </div>
                         </div>
                       </div>

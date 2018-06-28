@@ -14,11 +14,11 @@
                         <h5 class="mt-0 mb-1 card-title">Registrar nueva tratamiento</h5>
                         <p class="card-category">Ingrese el nombre del Tratamiento</p>
                       </div>
-                      <img src="{{asset('imagenes/Reserva.png')}}" class="img-fluid" style="width:90px;" >
+                      <img src="{{asset('imagenes/tratamiento.jpg')}}" class="img-fluid rounded-circle" style="width:90px;" >
                     </div>
                   </div>
                   <div class="card-body" style="background-color:#71AFC8;">
-                    <form class="form-group" action="/treatment" method="POST" enctype="multipart/form-data">
+                    <form class="form-group" action="{{route('treatment.store')}}" method="POST" enctype="multipart/form-data">
                       @csrf
                       <div class="form-row">
                         <div class="form-group col-md-12">

@@ -14,11 +14,11 @@
                         <h5 class="mt-0 mb-1 card-title">Registrar nueva Receta Medica</h5>
                         <p class="card-category">Ingrese el nombre de la receta medica y las instrucciones de consumo</p>
                       </div>
-                      <img src="{{asset('imagenes/Reserva.png')}}" class="img-fluid" style="width:90px;" >
+                      <img src="{{asset('imagenes/medicamento.png')}}" class="img-fluid rounded-circle" style="width:90px;" >
                     </div>
                   </div>
                   <div class="card-body" style="background-color:#71AFC8;">
-                    <form class="form-group" action="/prescription" method="POST" enctype="multipart/form-data">
+                    <form class="form-group" action="{{route('prescription.store')}}" method="POST" enctype="multipart/form-data">
                       @csrf
                       <div class="form-row">
                         <div class="form-group col-md-12">
@@ -43,7 +43,7 @@
                           </select>
                         </div>
                       </div>
-                      <center><button type="submit" class="btn btn-primary" id="fondo"><i class="fas fa-briefcase-medical"></i> Registrar</button></center>
+                      <center><button type="submit" class="btn btn-primary" id="fondo"><i class="fas fa-clipboard-check"></i> Registrar</button></center>
                     </form>
                   </div>
                 </div>

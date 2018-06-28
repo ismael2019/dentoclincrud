@@ -12,7 +12,7 @@
                         <h5 class="mt-0 mb-1 card-title">Lista de Recetas medicas</h5>
                         <p class="card-category">lista de las recetas medicas</p>
                       </div>
-                      <img src="{{asset('imagenes/Reserva.png')}}" class="img-fluid" style="width:90px;" >
+                      <img src="{{asset('imagenes/medicamento.png')}}" class="img-fluid" style="width:90px;" >
                     </div>
                   </div>
                   <div class="card-body">
@@ -33,11 +33,11 @@
                               <td>{{$prescription->id}}</td>
                               <td>{{$prescription->tittle}}</td>
                               <td>{{$prescription->detail}}</td>
-                              <td>{{$prescription->patient_id}}</td>
+                              <td>{{$prescription->patient->name}}</td>
                               <td>
                                 <div class="btn-group d-flex" >
-                                <a class="btn btn-info" href="/prescription/{{$prescription->id}}/edit"><i class="far fa-edit"> Editar</i></a>
-                                <a class="btn btn-success"  href="/prescription/{{$prescription->id}}"><i class="far fa-eye"> Ver</i></a>
+                                <a class="btn btn-info" href="{{route('prescription.edit',$prescription->id)}}"><i class="far fa-edit"> Editar</i></a>
+                                <a class="btn btn-success"  href="{{route('prescription.show',$prescription->id)}}"><i class="far fa-eye"> Ver</i></a>
                                 <form action="{{action('PrescriptionController@destroy', $prescription['id'])}}"  method="post">
                                   @csrf
                                   <input name="_method" type="hidden" value="DELETE">
