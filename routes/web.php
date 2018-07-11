@@ -14,8 +14,22 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('patient','PatientController');
-Route::resource('consultation','ConsultationController');
-Route::resource('treatment','TreatmentController');
-Route::resource('prescription','PrescriptionController');
-Route::resource('attention','AttentionController');
+Route::group(['middleware' => 'admin'], function () {
+  Route::resource('patient','PatientController');
+  Route::resource('consultation','ConsultationController');
+  Route::resource('treatment','TreatmentController');
+  Route::resource('prescription','PrescriptionController');
+  Route::resource('attention','AttentionController');
+});
+Route::group(['middleware' => 'dentista'], function () {
+  Route::resource('patient','PatientController');
+  Route::resource('consultation','ConsultationController');
+  Route::resource('treatment','TreatmentController');
+  Route::resource('prescription','PrescriptionController');
+  Route::resource('attention','AttentionController');
+});
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

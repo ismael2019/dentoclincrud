@@ -82,6 +82,7 @@ class PatientController extends Controller
         ->where('attentions.patient_id', '=', $patient->id)->get();
         $recetas = DB::table('prescriptions')->where('prescriptions.patient_id', '=', $patient->id)->get();
        //dd($recetas);
+       //dd($consultas);
       return view('patient.show', ['patient' => $patient, 'consultas' => $consultas,'recetas'=>$recetas]);
     }
 
@@ -108,7 +109,7 @@ class PatientController extends Controller
     {
       $patient->fill($request->all());
       $patient->save();
-
+      Session::flash('edit', 'Se modifico al Paciente con Éxito');
       return Redirect::to('/patient');
     }
 
@@ -122,6 +123,7 @@ class PatientController extends Controller
     {
       $patient = Patient::find($id);
       $patient->delete();
-      return redirect('patient')->with('success','Information has been  deleted');
+      Session::flash('del', 'El Paciente fue Eliminado con Éxito');
+      return redirect('patient');
     }
 }

@@ -81,9 +81,13 @@
                             <div class="table-responsive">
                             <table class="table table-sm">
                                <tr>
-                                  <th scope="col">Diente</th>
-                                  <td>{{$consul->tooth}}</td>
+                                  <th scope="col">Consulta de la Fecha:</th>
+                                  <td>{{$consul->created_at}}</td>
                                 </tr>
+                                <tr>
+                                   <th scope="col">Diente</th>
+                                   <td>{{$consul->tooth}}</td>
+                                 </tr>
                                  <tr>
                                    <th scope="col">Descripcion</th>
                                    <td>{{$consul->description}}</td>
@@ -112,9 +116,13 @@
                             <div class="table-responsive">
                             <table class="table table-sm">
                                <tr>
-                                  <th scope="col">Medicamento</th>
-                                  <td>{{$rece->tittle}}</td>
+                                  <th scope="col">Receta de la Fecha:</th>
+                                  <td>{{$rece->created_at}}</td>
                                 </tr>
+                                <tr>
+                                   <th scope="col">Medicamento</th>
+                                   <td>{{$rece->tittle}}</td>
+                                 </tr>
                                  <tr>
                                    <th scope="col">Detalle</th>
                                    <td>{{$rece->detail}}</td>

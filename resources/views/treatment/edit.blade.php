@@ -26,7 +26,7 @@
 
 
                       </div>
-                            <center><button type="submit" class="btn btn-success"><i class="far fa-edit"></i> Actualizar</button>
+                            <center><button type="submit" onclick="return confirm('Seguro que quiere Modificar los datos del Tratamiento?');" class="btn btn-success"><i class="far fa-edit"></i> Actualizar</button>
                             <a href="{{url('/treatment')}}" class="btn btn-danger"><i class="fas fa-ban"></i> Cancelar</a>
                             </center>
                     </form>

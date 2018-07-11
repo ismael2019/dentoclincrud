@@ -22,25 +22,25 @@
                       <div class="form-row">
                         <div class="form-group col-md-4">
                           <label>Cedula de Identidad</label>
-                          <input type="text" class="form-control" name="c_i">
+                          <input type="text" class="form-control" placeholder="Ingrese número de CI" name="c_i">
                         </div>
                         <div class="form-group col-md-4">
                           <label for="">Nombres</label>
-                          <input type="text" class="form-control" name="name">
+                          <input type="text" class="form-control" placeholder="Ingrese Nombres del Paciente" name="name">
                         </div>
                         <div class="form-group col-md-4">
                           <label for="">Apellido</label>
-                          <input type="text" class="form-control" name="last_name">
+                          <input type="text" class="form-control" placeholder="Ingrese Apellidos del Paciente" name="last_name">
                         </div>
                       </div>
                       <div class="form-row">
                         <div class="form-group col-md-1">
                           <label for="">Edad</label>
-                          <input type="text" class="form-control" name="age">
+                          <input type="text" class="form-control" placeholder="Edad" name="age">
                         </div>
                         <div class="form-group col-md-2">
                           <label for="">Sexo</label>
-                          <select class="form-control" name="gender">
+                          <select class="form-control"  name="gender">
                             <option>Seleccione genero</option>
                             <option>Masculino</option>
                             <option>Femenino</option>
@@ -48,11 +48,11 @@
                         </div>
                         <div class="form-group col-md-3">
                           <label for="">email</label>
-                          <input type="email" class="form-control" name="email">
+                          <input type="email" class="form-control"  placeholder="Paciente@mail.com" name="email">
                         </div>
                         <div class="form-group col-md-3">
                           <label for="">Telefono</label>
-                          <input type="text" class="form-control" name="phone">
+                          <input type="text" class="form-control" placeholder="Ingrese Número Telefonico del Paciente" name="phone">
                         </div>
                         <div class="form-group col-md-3">
                           <label for="">Departamento</label>

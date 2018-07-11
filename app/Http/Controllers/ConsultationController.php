@@ -52,7 +52,7 @@ class ConsultationController extends Controller
         $consultation->end_date = $request->input('end_date');
         $consultation->patient_id = $request->input('patient_id');
         $consultation->save();
-        Session::flash('message', 'La cita fue registrado con Éxito');
+        Session::flash('message', 'La cita fue registrada con Éxito');
         return Redirect::to('/consultation');
 
 
@@ -91,7 +91,7 @@ class ConsultationController extends Controller
     {
       $consultation->fill($request->all());
       $consultation->save();
-
+      Session::flash('edit', 'Se modifico la Cita con Éxito');
       return Redirect::to('/consultation');
     }
 
@@ -105,6 +105,7 @@ class ConsultationController extends Controller
     {
         $consultation = Consultation::find($id);
         $consultation->delete();
-        return redirect('consultation')->with('success','Information has been  deleted');
+        Session::flash('del', 'La cita fue Eliminada con Éxito');
+        return redirect('consultation');
     }
 }

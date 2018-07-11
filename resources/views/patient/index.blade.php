@@ -52,7 +52,7 @@
                                 <form action="{{action('PatientController@destroy', $patient['id'])}}"  method="post">
                                   @csrf
                                   <input name="_method" type="hidden" value="DELETE">
-                                  <button class="btn btn-danger" type="submit"><i class="far fa-trash-alt"> Delete</i></button>
+                                  <button class="btn btn-danger" type="submit"  onclick="return confirm('Seguro que quiere Eliminar al Paciente?');"><i class="far fa-trash-alt"> Delete</i></button>
                                 </form>
                               </div>
                               </td>

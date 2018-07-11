@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title','Paciente Nuevo')
+@section('title','Cita Nueva')
 @section('seleccionado2','seleccionado2')
 @section('texto1','Crear Nuevo Cita')
 @section('texto2','Ingrese los datos del paciente para registrarlo')

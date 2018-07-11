@@ -50,7 +50,7 @@ class PrescriptionController extends Controller
       $prescription->detail = $request->input('detail');
       $prescription->patient_id = $request->input('patient_id');
       $prescription->save();
-      Session::flash('message', 'La cita fue registrado con Éxito');
+      Session::flash('message', 'La Receta Médica fue registrada con Éxito');
       return Redirect::to('/prescription');
     }
 
@@ -87,6 +87,7 @@ class PrescriptionController extends Controller
     {
         $prescription->fill($request->all());
         $prescription->save();
+        Session::flash('edit', 'Se modifico la receta médica con Éxito');
         return Redirect::to('/prescription');
     }
 
@@ -100,6 +101,7 @@ class PrescriptionController extends Controller
     {
         $prescription = Prescription::find($id);
         $prescription->delete();
-        return redirect('prescription')->with('success','Information has been delete');
+        Session::flash('del', 'La receta Médica fue Eliminado con Éxito');
+        return redirect('prescription');
     }
 }

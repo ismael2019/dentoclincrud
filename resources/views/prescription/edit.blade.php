@@ -41,7 +41,7 @@
                           </select>
                         </div>
                       </div>
-                      <center><button type="submit" class="btn btn-primary" id="fondo"><i class="fas fa-clipboard-check"></i> Modificar</button></center>
+                      <center><button type="submit" onclick="return confirm('Seguro que quiere Modificar los datos de la Receta Médica?');" class="btn btn-primary" id="fondo"><i class="fas fa-clipboard-check"></i> Modificar</button></center>
                     </form>
                   </div>
                 </div>

@@ -53,7 +53,7 @@ class AttentionController extends Controller
         $attention->patient_id = $request->input('patient_id');
         $attention->treatment_id = $request->input('treatment_id');
         $attention->save();
-        Session::flash('message', 'Regristro con exito');
+        Session::flash('message', 'Se regristró el Historial Médico con exito');
         return Redirect::to('/attention');
     }
 
@@ -92,6 +92,7 @@ class AttentionController extends Controller
     {
         $attention->fill($request->all());
         $attention->save();
+        Session::flash('edit', 'Se modificó el Historial Médico con Éxito');
         return Redirect::to('/attention');
     }
 
@@ -105,6 +106,7 @@ class AttentionController extends Controller
     {
        $attention = Attention::find($id);
        $attention->delete();
-       return redirect('attention')>with('success','Information has been delete');
+       Session::flash('del', 'El Historial Médico fue Eliminado con Éxito');
+       return redirect('attention');
    }
 }

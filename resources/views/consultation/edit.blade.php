@@ -74,7 +74,7 @@
                           </select>
                         </div>
                       </div>
-                      <center><button type="submit" class="btn btn-success"><i class="far fa-edit"></i> Actualizar</button>
+                      <center><button type="submit" class="btn btn-success" onclick="return confirm('Seguro que quiere Modificar los datos de la Cita Médica?');"><i class="far fa-edit"></i> Actualizar</button>
                       <a href="{{url('/consultation')}}" class="btn btn-danger"><i class="fas fa-ban"></i> Cancelar</a>
                       </center></form>
                     </form>

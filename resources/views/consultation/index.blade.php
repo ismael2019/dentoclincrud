@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('seleccionado3','seleccionado3')
-@section('title','Pacientes')
+@section('title','Citas Medicas')
 @section('content')
   <div class="container-fluid">
       <div class="row">
@@ -43,7 +43,7 @@
                                 <form action="{{action('ConsultationController@destroy', $consultation['id'])}}"  method="post">
                                   @csrf
                                   <input name="_method" type="hidden" value="DELETE">
-                                  <button class="btn btn-danger" type="submit"><i class="far fa-trash-alt"> Borrar</i></button>
+                                  <button class="btn btn-danger" onclick="return confirm('Seguro que quiere Eliminar los datos de la Cita Médica?');" type="submit"><i class="far fa-trash-alt"> Borrar</i></button>
                                 </form>
                                 </div>
 

@@ -45,7 +45,7 @@ class TreatmentController extends Controller
         $treatment = new Treatment;
         $treatment->name = $request->input('name');
         $treatment->save();
-        Session::flash('message', 'El trtamiento fue registrado con Éxito');
+        Session::flash('message', 'El tratamiento fue registrado con Éxito');
         return Redirect::to('/treatment');
 
     }
@@ -83,6 +83,7 @@ class TreatmentController extends Controller
     {
       $treatment->fill($request->all());
       $treatment->save();
+      Session::flash('edit', 'Se modifico el Tratamiento con Éxito');
       return Redirect::to('/treatment');
     }
 
