@@ -36,7 +36,7 @@ class LoginController extends Controller
 
      }
 
-    //protected $redirectTo = '/home';
+  //protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -47,5 +47,6 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class CheckRole
+class restriccion
 {
     /**
      * Handle an incoming request.
@@ -15,17 +15,13 @@ class CheckRole
      */
     public function handle($request, Closure $next)
     {
-      if (auth()->check() && auth()->user()->role == 'dentista')
+      if (auth()->check() && auth()->user()->role == 'admin')
       {
         return $next($request);
-      }elseif (auth()->check() && auth()->user()->role == 'admin') {
-        return $next($request);
+        
       }
 
-        return redirect('/login');
-
-
+        return redirect('/patient');
       }
-
 
 }
