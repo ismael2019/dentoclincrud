@@ -96,12 +96,17 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
+        @if(Auth::user()->role == 'admin')
+          <li>
+            <a class="navbar-brand" href="{{ url('home') }}" style="color:#ffffff; text-align: left;">Inicio</a>
+          </li>
+        @endif
       <li class="nav-item">
-          <form class="form-inline my-2 my-lg-0 mr-lg-2">
+          <form  method="GET" action="{{route('patient.index')}}" class="form-inline my-2 my-lg-0 mr-lg-2">
             <div class="input-group">
-              <input class="form-control" type="text" placeholder="Search for...">
+              <input class="form-control" type="text" placeholder="Busqueda">
               <span class="input-group-append">
-                <button class="btn btn-primary" type="button">
+                <button class="btn btn-primary" type="submit">
                   <i class="fa fa-search"></i>
                 </button>
               </span>
