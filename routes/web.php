@@ -14,12 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::group(['middleware' => 'admin'], function () {
   Route::resource('patient','PatientController');
   Route::resource('consultation','ConsultationController');
   Route::resource('treatment','TreatmentController');
   Route::resource('prescription','PrescriptionController');
   Route::resource('attention','AttentionController');
+  Route::resource('users','UsersController');
+
 });
 
 

@@ -18,6 +18,10 @@ class User extends Authenticatable
         'name', 'email', 'password','role',
     ];
 
+    public function scopeSearch($query, $name){
+      return $query->where(\DB::raw("CONCAT(name, ' ', email, ' ', role)"),"LIKE","%$name%");
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

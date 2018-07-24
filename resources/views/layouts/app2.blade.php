@@ -16,6 +16,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/admin/css/fontawesome-all.min.css')}}" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -60,6 +61,10 @@
 
                             <a class="btn btn-primary" href="{{ url('register') }}">
                                 {{ __('Registrar Nuevo Usuario') }}
+                            </a>
+
+                            <a class="btn btn-primary" href="{{ url('users') }}">
+                                {{ __('Lista de Usuarios') }}
                             </a>
 
                             <a class="btn btn-primary" href="{{ route('logout') }}"
