@@ -18,6 +18,25 @@
                   </div>
                   <div class="card-body">
                     <div class="table-responsive-xl">
+
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <h6>Hay {{$patients->total()}} Pacientes Registrados </h6>
+                        </div>
+                        <div class="col-sm-6">
+                          <form  method="GET" action="{{route('patient.index')}}">
+                              <div class="input-group">
+                                <input class="form-control" type="text" name="name" placeholder="Busqueda">
+                                <span class="input-group-append">
+                                  <button class="btn btn-primary" type="submit">
+                                    <i class="fa fa-search"></i>
+                                  </button>
+                                </span>
+                              </div>
+                          </form>
+                        </div>
+                      </div>
+                      <br>
                       <table class="table table-striped">
                         <thead style="color:#ffffff; background-color:#007FB3;">
                           <tr>
@@ -60,6 +79,7 @@
                           @endforeach
                         </tbody>
                       </table>
+                      {!! $patients->render() !!}
                     </div>
                   </div>
               </div>

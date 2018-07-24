@@ -101,18 +101,6 @@
             <a class="navbar-brand" href="{{ url('home') }}" style="color:#ffffff; text-align: left;">Inicio</a>
           </li>
         @endif
-      <li class="nav-item">
-          <form  method="GET" action="{{route('patient.index')}}" class="form-inline my-2 my-lg-0 mr-lg-2">
-            <div class="input-group">
-              <input class="form-control" type="text" placeholder="Busqueda">
-              <span class="input-group-append">
-                <button class="btn btn-primary" type="submit">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-          </form>
-        </li>
         <li class="nav-item">
           <a class="nav-link btn btn-danger" data-toggle="modal" data-target="#exampleModal" style="color:#ffffff;">
             <i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a>
