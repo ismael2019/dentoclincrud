@@ -54,7 +54,8 @@ class AttentionController extends Controller
         $attention->treatment_id = $request->input('treatment_id');
         $attention->save();
         Session::flash('message', 'Se regristró el Historial Médico con exito');
-        return Redirect::to('/attention');
+        //return Redirect::to('/attention');
+        return back()->with('success', 'comentario enviado');
     }
 
     /**

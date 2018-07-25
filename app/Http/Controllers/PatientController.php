@@ -7,8 +7,10 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Patient;
+use App\Treatment;
 use Session;
 use Redirect;
+
 class PatientController extends Controller
 {
     /**
@@ -76,15 +78,17 @@ class PatientController extends Controller
      */
     public function show($id)
     {
+        $treatments = Treatment::all();
         $patient = Patient::findOrFail($id);
         $consultas = DB::table('attentions')
         ->join('treatments','treatments.id','=','treatment_id')
         ->select('attentions.*','treatments.name')
         ->where('attentions.patient_id', '=', $patient->id)->get();
         $recetas = DB::table('prescriptions')->where('prescriptions.patient_id', '=', $patient->id)->get();
+
        //dd($recetas);
        //dd($consultas);
-      return view('patient.show', ['patient' => $patient, 'consultas' => $consultas,'recetas'=>$recetas]);
+      return view('patient.show', ['patient' => $patient, 'consultas' => $consultas,'recetas'=>$recetas,'treatments'=>$treatments]);
     }
 
      /**

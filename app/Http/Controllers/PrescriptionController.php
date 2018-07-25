@@ -51,7 +51,8 @@ class PrescriptionController extends Controller
       $prescription->patient_id = $request->input('patient_id');
       $prescription->save();
       Session::flash('message', 'La Receta Médica fue registrada con Éxito');
-      return Redirect::to('/prescription');
+      //return Redirect::to('/prescription');
+      return back()->with('success', 'comentario enviado');
     }
 
     /**
