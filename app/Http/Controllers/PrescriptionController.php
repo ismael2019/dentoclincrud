@@ -74,7 +74,9 @@ class PrescriptionController extends Controller
      */
     public function edit(Prescription $prescription)
     {
-        return view ('prescription.edit',compact('prescription'));
+        //dd($prescription);
+        $patients = Patient::all();
+        return view ('prescription.edit',compact('prescription','patients'));
     }
 
     /**

@@ -34,7 +34,7 @@
               <li> <a class="page-scroll" href="#team">Equipo</a> </li>
               <li> <a class="page-scroll" href="#testimonials">Paciente</a> </li>
               <li> <a class="page-scroll" href="#contact">Contactenos</a> </li>
-              <li> <a class="page-scroll" href="#">Sugerencias</a> </li>
+              <li> <a href="{{url('/suggestion/create')}}">Sugerencias</a> </li>
               <li>  <a href="{{ route('login') }}">Login</a> </li>
               <!--<li>  <a href="{{ route('register') }}">Register</a> </li>-->
             </ul>

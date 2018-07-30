@@ -42,8 +42,8 @@
                           <select class="form-control" name="gender">
                             <option>Seleccione genero</option>
                             <option value="Masculino" @if($patient->gender=="Masculino") selected @endif>Masculino</option>
-                              <option value="Femenino" @if($patient->gender=="Femenino") selected @endif>Femenino</option>
-                              </select>
+                            <option value="Femenino" @if($patient->gender=="Femenino") selected @endif>Femenino</option>
+                          </select>
                             </div>
                             <div class="form-group col-md-3">
                               <label for="">email</label>

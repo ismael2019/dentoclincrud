@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Attention extends Model
 {
   protected $fillable = [
-    'tooth','description'
+    'tooth','description','patient_id','treatment_id'
   ];
 
   public function patient(){

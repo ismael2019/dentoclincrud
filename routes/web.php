@@ -23,11 +23,9 @@ Route::group(['middleware' => 'admin'], function () {
   Route::resource('attention','AttentionController');
   Route::resource('users','UsersController');
 
+
 });
-
-
-
-
+  Route::resource('suggestion','SuggestionController');
 
 Auth::routes();
 

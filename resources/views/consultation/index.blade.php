@@ -17,6 +17,11 @@
                   </div>
                   <div class="card-body">
                     <div class="table-responsive-xl">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <h6>Hay {{$consultations->total()}} Citas Medicas </h6>
+                        </div>
+                        </div>
                       <table class="table table-striped">
                         <thead style="color:#ffffff; background-color:#007FB3;">
                           <tr>
@@ -52,6 +57,8 @@
                           @endforeach
                         </tbody>
                       </table>
+                      {!! $consultations->render() !!}
+
                     </div>
                   </div>
               </div>

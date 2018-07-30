@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Consultation;
@@ -17,7 +19,7 @@ class ConsultationController extends Controller
      */
     public function index()
     {
-        $consultations = Consultation::all();
+        $consultations = Consultation::orderBy('id','DESC')->paginate(5);
         return view ('consultation.index',compact('consultations'));
     }
 
@@ -77,7 +79,8 @@ class ConsultationController extends Controller
      */
     public function edit(Consultation $consultation)
     {
-        return view ('consultation.edit',compact('consultation'));
+        $patients = Patient::all();
+        return view ('consultation.edit',compact('consultation','patients'));
     }
 
     /**
@@ -87,7 +90,7 @@ class ConsultationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Consultation $consultation)
+    public function update(Request $request, Consultation $consultation, Patient $patients)
     {
       $consultation->fill($request->all());
       $consultation->save();

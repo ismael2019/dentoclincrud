@@ -37,7 +37,7 @@
                           <select class="form-control" name="patient_id">
                             <option>{{$attention->patient->last_name.' '.$attention->patient->name}}</option>
                             @foreach ($patients as $patient)
-                              <option value="{{$attention->patient_id}}">{{$patient->last_name}} {{$patient->name}}</option>
+                              <option value="{{$patient->id}}">{{$patient->last_name}} {{$patient->name}}</option>
                             @endforeach
                           </select>
                         </div>
@@ -48,7 +48,7 @@
                           <select class="form-control" name="treatment_id">
                             <option value="">{{$attention->treatment->name}}</option>
                             @foreach ($treatments as $treatment)
-                              <option value="{{$treatment['id']}}">{{$treatment->name}}</option>
+                              <option value="{{$treatment->id}}">{{$treatment->name}}</option>
                             @endforeach
                           </select>
                         </div>

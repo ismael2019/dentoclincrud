@@ -19,7 +19,8 @@ class AttentionController extends Controller
      */
     public function index()
     {
-        $attentions = Attention::all();
+        $attentions = Attention::orderBy('id','DESC')->paginate(5);
+
         return view ('attention.index',compact('attentions'));
     }
 

@@ -68,9 +68,10 @@
                         <div class="form-group col-md-12">
                           <label for="">Paciente</label>
                           <select class="form-control" name="patient_id">
-                            <option>1</option>
-                            <option>Masculino</option>
-                            <option>Femenino</option>
+                            <option>{{$consultation->patient->last_name.' '.$consultation->patient->name}}</option>
+                            @foreach($patients as $patient)
+                              <option value="{{$patient->id}}" {{$patient->id == $consultation->patient_id ? 'select' : ''}}>{{$patient->last_name}} {{$patient->name}}</option>
+                            @endforeach
                           </select>
                         </div>
                       </div>

@@ -87,6 +87,12 @@
             <span class="nav-link-text" style=" color:#ffffff;">Lista de Historiales</span>
           </a>
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Lista de Pacientes">
+          <a class="nav-link" id="@yield('seleccionado10')" href="{{url('/suggestion')}}">
+            <i class="fas fa-book" style="color: #ffffff; vertical-align:middle; "></i>
+            <span class="nav-link-text" style=" color:#ffffff;">Sugerencias</span>
+          </a>
+        </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler" style="background-color: #007FB3">
         <li class="nav-item">

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Suggestion;
+use Session;
+use Redirect;
 
 class SuggestionController extends Controller
 {
@@ -11,9 +15,16 @@ class SuggestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+     public function __construct()
+     {
+         $this->middleware('admin')->except('create','store');
+
+     }
+  public function index()
     {
-        //
+      $suggestions = Suggestion::orderBy('id','DESC')->paginate(5);
+      return view ('suggestion.index',compact('suggestions'));
     }
 
     /**
@@ -23,7 +34,7 @@ class SuggestionController extends Controller
      */
     public function create()
     {
-        //
+        return view('suggestion.create');
     }
 
     /**
@@ -34,7 +45,21 @@ class SuggestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $this->validate($request,[
+        'full_name'=>'required',
+        'cel'=>'required',
+        'email'=>'required',
+        'description'=>'required',
+      ]);
+
+      $suggestion = new Suggestion;
+      $suggestion->full_name = $request->input('full_name');
+      $suggestion->cel = $request->input('cel');
+      $suggestion->email = $request->input('email');
+      $suggestion->description = $request->input('description');
+      $suggestion->save();
+      Session::flash('sugerencia', 'La Sugerencia fue registrado con Éxito');
+      return back();
     }
 
     /**
@@ -43,9 +68,10 @@ class SuggestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+
+    public function show(Suggestion $suggestion)
     {
-        //
+        return view('suggestion.show',compact('suggestion'));
     }
 
     /**
@@ -66,9 +92,11 @@ class SuggestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Suggestion $suggestion)
     {
-        //
+      $suggestion->fill($request->all());
+      $suggestion->save();
+      return Redirect::to('/suggestion');
     }
 
     /**
@@ -79,6 +107,9 @@ class SuggestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $suggestion = Suggestion::find($id);
+      $suggestion->delete();
+      Session::flash('eliminarSuge', 'Se elimino la sugerencia con Éxito');
+      return redirect('suggestion');
     }
 }

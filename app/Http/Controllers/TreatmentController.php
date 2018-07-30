@@ -16,7 +16,7 @@ class TreatmentController extends Controller
      */
     public function index()
     {
-        $treatments = Treatment::all();
+        $treatments = Treatment::orderBy('id','DESC')->paginate(5);
         return view ('treatment.index',compact('treatments'));
     }
 

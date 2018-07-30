@@ -17,7 +17,7 @@
                     </div>
                   </div>
                   <div class="card-body" style="background-color:#71AFC8;">
-                    <form class="form-group" action="/prescription/{{$prescription->id}}" method="POST" enctype="multipart/form-data">
+                    <form class="form-group" action="{{ route('prescription.update', $prescription->id)}}" method="POST" enctype="multipart/form-data">
                       @method ('PUT')
                       @csrf
                       <div class="form-row">
@@ -36,8 +36,10 @@
                         <div class="form-group col-md-12">
                           <label for="">Paciente</label>
                           <select class="form-control" name="patient_id">
-                            <option value="">--Seleccione al Paciente--</option>
-
+                            <option>{{$prescription->patient->last_name.' '.$prescription->patient->name}}</option>
+                            @foreach ($patients as $patient)
+                              <option value="{{$patient['id']}}">{{$patient->last_name}} {{$patient->name}}</option>
+                            @endforeach
                           </select>
                         </div>
                       </div>

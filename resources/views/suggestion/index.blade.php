@@ -1,6 +1,8 @@
 @extends('layout.app')
-@section('seleccionado5','seleccionado5')
-@section('title','Tratamientos')
+
+@section('title','Tratamiento Nuevo')
+@section('seleccionado10','seleccionado10')
+
 @section('content')
   <div class="container-fluid">
       <div class="row">
@@ -9,39 +11,41 @@
                   <div class="card-header card-header-primary"  style="background-color:#007FB3;">
                     <div class="media">
                       <div class="media-body" style="color:#fff;">
-                        <h5 class="mt-0 mb-1 card-title">Lista de Tratamientos medicos</h5>
-                        <p class="card-category">lista de los tratamientos medicos</p>
+                        <h5 class="mt-0 mb-1 card-title">Lista de Sugerencias</h5>
+                        <p class="card-category">lista de las sugerencias por los pacientes</p>
                       </div>
-                      <img src="{{asset('imagenes/tratamiento.jpg')}}" class="img-fluid rounded-circle" style="width:90px;" >
+                    <img src="{{asset('imagenes/informe.png')}}" class="img-fluid" style="width:100px;" >
                     </div>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive-xl">
                       <div class="row">
                         <div class="col-sm-6">
-                          <h6>Hay {{$treatments->total()}} Recetas Registradas </h6>
+                          <h6>Hay {{$suggestions->total()}} Sugerencias Registradas </h6>
                         </div>
                         </div>
                       <table class="table table-striped">
                         <thead style="color:#ffffff; background-color:#007FB3;">
                           <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Tratamiento</th>
-                            <th colspan="3">Acciones</th>
+                            <th scope="col">Nombre Completo</th>
+                            <th scope="col">Telefono</th>
+
+                            <th colspan="2">Acciones</th>
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach($treatments as $treatment)
+                          @foreach($suggestions as $suggestion)
                             <tr>
-                              <td>{{$treatment->id}}</td>
-                              <td>{{$treatment->name}}</td>
+                              <td>{{$suggestion->full_name}}</td>
+                              <td>{{$suggestion->cel}}</td>
+
                               <td>
                                 <div class="btn-group d-flex" >
-                                <a class="btn btn-info" href="{{route('treatment.edit',$treatment->id)}}"><i class="far fa-edit"> Editar</i></a>
-                                <form action="{{action('TreatmentController@destroy', $treatment['id'])}}"  method="post">
+                                <a href="{{ route('suggestion.show', $suggestion->id)}}" class="btn btn-success"><i class="far fa-eye"> Mostrar</i></a>
+                                <form action="{{action('SuggestionController@destroy', $suggestion['id'])}}"  method="post">
                                   @csrf
                                   <input name="_method" type="hidden" value="DELETE">
-                                  <button class="btn btn-danger" onclick="return confirm('Seguro que quiere Eliminar los datos del Tratamiento?');" type="submit"><i class="far fa-trash-alt"> Borrar</i></button>
+                                  <button class="btn btn-danger" onclick="return confirm('Seguro que quiere Eliminar la Sugerencia?');" type="submit"><i class="far fa-trash-alt"> Borrar</i></button>
                                 </form>
                                 </div>
 
@@ -50,7 +54,7 @@
                           @endforeach
                         </tbody>
                       </table>
-                      {!! $treatments->render() !!}
+                      {!! $suggestions->render() !!}
                     </div>
                   </div>
               </div>
